@@ -1,12 +1,16 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import Banner from "@/components/UI/Banner";
+import Categories from "@/components/UI/Categories";
+import RecentProducts from "@/components/UI/RecentProducts";
 import React from "react";
 
 const HomePage = ({ products }) => {
-  console.log(products);
+  // console.log(products);
   return (
     <div>
       <Banner />
+      <RecentProducts products={products.data} />
+      <Categories />
     </div>
   );
 };

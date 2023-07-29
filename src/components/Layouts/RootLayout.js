@@ -70,14 +70,16 @@ const RootLayout = ({ children }) => {
       >
         <div className="demo-logo max-w-[200px]">
           {/* <img src={logo} alt="logo" /> */}
-          <Image
-            className="mt-6"
-            src={logo}
-            width="200"
-            height="100"
-            responsive
-            alt="logo"
-          />
+          <Link href="/">
+            <Image
+              className="mt-6 cursor-pointer"
+              src={logo}
+              width="200"
+              height="100"
+              responsive
+              alt="logo"
+            />
+          </Link>
         </div>
 
         <div className="flex justify-between w-full">
@@ -100,9 +102,11 @@ const RootLayout = ({ children }) => {
           </div>
 
           <div>
-            <Button type="primary" size={size}>
-              PC Builder
-            </Button>
+            <Link href="/pcBuilder">
+              <Button type="primary" size={size}>
+                PC Builder
+              </Button>
+            </Link>
             <Button type="primary" size={size}>
               Login
             </Button>

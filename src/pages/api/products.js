@@ -19,9 +19,17 @@ async function run(req, res) {
     const productsCollection = database.collection("products");
 
     // get API
-    if (req.method === "GET") {
+    if (req.method === "GET" && !req.query.category) {
       const products = await productsCollection.find({}).toArray();
+      res.send({ message: "success", status: 200, data: products });
+    }
 
+    // Get products by category
+    if (req.method === "GET" && req.query.category) {
+      const category = req.query.category; // Assuming you pass the category as a query parameter
+      const products = await productsCollection
+        .find({ category: category })
+        .toArray();
       res.send({ message: "success", status: 200, data: products });
     }
   } finally {
