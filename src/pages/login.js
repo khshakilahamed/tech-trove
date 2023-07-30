@@ -13,8 +13,8 @@ import RootLayout from "@/components/Layouts/RootLayout";
 const LoginPage = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-    createUserWithEmailAndPassword(data.email, data.password);
+    // console.log(data);
+    // createUserWithEmailAndPassword(data.email, data.password);
   };
 
   return (
@@ -25,11 +25,11 @@ const LoginPage = () => {
       <div className={styles.form}>
         <h3 className="text-center">LOGIN</h3>
         <div className={styles.social_icons}>
-          <GoogleOutlined
+          {/* <GoogleOutlined
             onClick={() =>
               signIn("google", { callbackUrl: "http://localhost:3000/" })
             }
-          />
+          /> */}
           <GithubOutlined
             onClick={() =>
               signIn("github", { callbackUrl: "http://localhost:3000/" })

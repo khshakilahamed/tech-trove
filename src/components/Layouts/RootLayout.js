@@ -8,12 +8,15 @@ import { Dropdown, Space } from "antd";
 import logo from "@/assets/logo/techTrove 250x200 white-text.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const RootLayout = ({ children }) => {
-  //   const { data: session } = useSession();
+  const { data: session } = useSession();
 
-  //   console.log(session);
+  const router = useRouter();
+
+  console.log(session);
 
   const {
     token: { colorBgContainer },
@@ -101,18 +104,26 @@ const RootLayout = ({ children }) => {
             </Dropdown>
           </div>
 
-          <div>
+          <div className="flex gap-2 items-center">
             <Link href="/pcBuilder">
               <Button type="primary" size={size}>
                 PC Builder
               </Button>
             </Link>
-            <Button type="primary" size={size}>
-              Login
-            </Button>
-            <Button type="primary" size={size}>
-              Logout
-            </Button>
+
+            {session?.user ? (
+              <Button onClick={() => signOut()} type="primary" size={size}>
+                Logout
+              </Button>
+            ) : (
+              <Button
+                onClick={() => router.push("/login")}
+                type="primary"
+                size={size}
+              >
+                Login
+              </Button>
+            )}
           </div>
         </div>
       </Header>
