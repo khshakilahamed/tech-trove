@@ -22,7 +22,7 @@ PowerSupply.getLayout = function getLayout(page) {
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    "http://localhost:5000/products?category=power supply"
+    "https://tech-trove-server.vercel.app/products?category=power supply"
   );
   const data = await res.json();
   return {

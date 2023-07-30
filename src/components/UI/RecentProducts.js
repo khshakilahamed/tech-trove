@@ -12,7 +12,7 @@ const RecentProducts = ({ products }) => {
   shuffleArray(products);
 
   // console.log(randomProducts);
-  const slicedRandomProducts = products.slice(0, 6);
+  const slicedRandomProducts = randomProducts.slice(0, 6);
 
   return (
     <div className="px-14 py-10">

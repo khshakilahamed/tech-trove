@@ -53,7 +53,7 @@ const PcBuilder = () => {
   return (
     <div className="px-14">
       <div className="flex justify-between items-center py-10">
-        <h2>PC Builder - Tech Trove</h2>
+        <h2 className="text-lg font-bold">PC Builder - Tech Trove</h2>
         <div className="flex flex-col items-center justify-center text-white bg-blue-600 rounded-lg min-w-[120px] h-[70px]">
           <p>Total</p>
           <p className="text-2xl font-bold">৳ {total}</p>

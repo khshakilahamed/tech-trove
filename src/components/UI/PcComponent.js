@@ -20,8 +20,9 @@ const PcComponent = ({
     <div>
       <div className="flex justify-between py-3">
         <div className="flex gap-4">
-          <div className="border p-2">
+          <div className="p-2">
             <Image
+              className="border p-2"
               src={product ? product.image : placeHolderImage}
               width="120"
               height="120"
@@ -56,7 +57,7 @@ const PcComponent = ({
             <p>Price</p>
             {product && (
               <>
-                <h2>৳ {product.price}</h2>
+                <h2 className="font-bold">৳ {product.price}</h2>
               </>
             )}
           </div>

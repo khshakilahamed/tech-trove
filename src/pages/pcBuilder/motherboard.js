@@ -22,7 +22,7 @@ Motherboard.getLayout = function getLayout(page) {
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    "http://localhost:5000/products?category=motherboard"
+    "https://tech-trove-server.vercel.app/products?category=motherboard"
   );
   const data = await res.json();
   return {

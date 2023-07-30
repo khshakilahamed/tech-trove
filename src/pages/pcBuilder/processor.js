@@ -26,7 +26,9 @@ Processor.getLayout = function getLayout(page) {
 };
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:5000/products?category=processor");
+  const res = await fetch(
+    "https://tech-trove-server.vercel.app/products?category=processor"
+  );
   const data = await res.json();
   return {
     props: {

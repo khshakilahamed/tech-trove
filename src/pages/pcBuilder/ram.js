@@ -21,7 +21,9 @@ Ram.getLayout = function getLayout(page) {
 };
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:5000/products?category=ram");
+  const res = await fetch(
+    "https://tech-trove-server.vercel.app/products?category=ram"
+  );
   const data = await res.json();
   return {
     props: {
@@ -31,7 +33,7 @@ export const getServerSideProps = async () => {
 };
 
 // export const getStaticProps = async () => {
-//   const res = await fetch("http://localhost:5000/products?category=ram");
+//   const res = await fetch("https://tech-trove-server.vercel.app/products?category=ram");
 //   const data = await res.json();
 
 //   // console.log(data);

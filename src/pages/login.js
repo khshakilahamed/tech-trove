@@ -30,9 +30,7 @@ const LoginPage = () => {
             }
           /> */}
           <GithubOutlined
-            onClick={() =>
-              signIn("github", { callbackUrl: "http://localhost:3000/" })
-            }
+            onClick={() => signIn("github", { callbackUrl: process.env.URL })}
             className="text-3xl"
           />
         </div>

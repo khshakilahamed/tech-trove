@@ -13,19 +13,21 @@ const Product = ({ product }) => {
     rating,
     description,
     capacity,
-  } = product?.data;
+  } = product?.data || {};
   return (
     <div className="px-14">
-      <div className="flex flex-wrap gap-10 justify-center py-10">
-        <div>
+      <div className="flex flex-col md:flex-row gap-10 justify-center py-10">
+        <div className="md:w-1/2 flex justify-center items-center">
           <Image src={image} width={300} height={300} alt="product image" />
         </div>
-        <div>
-          <h2>{productName}</h2>
+        <div className="md:w-1/2">
+          <h2 className="text-2xl font-bold">{productName}</h2>
           <p>Category: {category}</p>
           <p>Brand: {brand}</p>
           <p>status: {status}</p>
-          <p>price: {price}</p>
+          <p>
+            price: <span className="font-bold">৳ {price}</span>
+          </p>
           {capacity && <p>Capacity: {capacity}</p>}
           <ReactStars
             count={5}
@@ -41,7 +43,7 @@ const Product = ({ product }) => {
         </div>
       </div>
       <div className="py-10">
-        <h2>Description</h2>
+        <h2 className="text-2xl font-bold">Description</h2>
         <p>{description}</p>
       </div>
     </div>
@@ -55,7 +57,7 @@ Product.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch("https://tech-trove-server.vercel.app/products");
   const products = await res.json();
 
   const paths = products?.data?.map((product) => ({
@@ -67,7 +69,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { params } = context;
-  const res = await fetch(`http://localhost:5000/product/${params.productId}`);
+  const res = await fetch(
+    `https://tech-trove-server.vercel.app/product/${params.productId}`
+  );
   const data = await res.json();
 
   return {
