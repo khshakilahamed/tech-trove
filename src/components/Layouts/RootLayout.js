@@ -16,7 +16,7 @@ const RootLayout = ({ children }) => {
 
   const router = useRouter();
 
-  console.log(session);
+  // console.log(session);
 
   const {
     token: { colorBgContainer },

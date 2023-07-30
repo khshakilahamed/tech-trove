@@ -26,9 +26,7 @@ Processor.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    "http://localhost:3000/api/products?category=processor"
-  );
+  const res = await fetch("http://localhost:5000/products?category=processor");
   const data = await res.json();
 
   // console.log(data);

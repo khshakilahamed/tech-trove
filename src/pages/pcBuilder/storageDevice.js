@@ -20,18 +20,30 @@ StorageDevice.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch(
     "http://localhost:5000/products?category=storage device"
   );
   const data = await res.json();
-
-  // console.log(data);
-
   return {
     props: {
       products: data,
     },
-    revalidate: 10,
   };
 };
+
+// export const getStaticProps = async () => {
+//   const res = await fetch(
+//     "http://localhost:5000/products?category=storage device"
+//   );
+//   const data = await res.json();
+
+//   // console.log(data);
+
+//   return {
+//     props: {
+//       products: data,
+//     },
+//     revalidate: 10,
+//   };
+// };

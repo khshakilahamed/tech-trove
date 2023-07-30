@@ -1,7 +1,12 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import Card from "@/components/UI/Card";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
-const StorageDevice = ({ products }) => {
+const Processor = ({ products }) => {
+  // const router = useRouter();
+  // console.log(router);
+
   return (
     <div className="px-14">
       <div className="flex gap-10 flex-wrap justify-center py-10">
@@ -14,24 +19,18 @@ const StorageDevice = ({ products }) => {
   );
 };
 
-export default StorageDevice;
+export default Processor;
 
-StorageDevice.getLayout = function getLayout(page) {
+Processor.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export const getStaticProps = async () => {
-  const res = await fetch(
-    "http://localhost:5000/products?category=storage device"
-  );
+export const getServerSideProps = async () => {
+  const res = await fetch("http://localhost:5000/products?category=processor");
   const data = await res.json();
-
-  // console.log(data);
-
   return {
     props: {
       products: data,
     },
-    revalidate: 10,
   };
 };

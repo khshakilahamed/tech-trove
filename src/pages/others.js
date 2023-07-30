@@ -21,7 +21,7 @@ Others.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/products?category=others");
+  const res = await fetch("http://localhost:5000/products?category=others");
   const data = await res.json();
 
   // console.log(data);
