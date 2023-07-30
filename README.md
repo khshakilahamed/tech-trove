@@ -33,7 +33,8 @@ Pre requirement - Must be installed nodejs in your computer
 </ol>
 
 Client .env example:-
-GITHUB_ID=replace_by_your_credentials
-GITHUB_SECRET=replace_by_your_credentials
-NEXTAUTH_SECRET=replace_by_your_credentials
-NEXTAUTH_URL=local_site_url/production_site_url
+
+- GITHUB_ID=replace_by_your_credentials
+- GITHUB_SECRET=replace_by_your_credentials
+- NEXTAUTH_SECRET=replace_by_your_credentials
+- NEXTAUTH_URL=local_site_url/production_site_url
