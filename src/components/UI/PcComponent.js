@@ -5,7 +5,7 @@ import { TfiReload } from "react-icons/tfi";
 import ReactStars from "react-rating-stars-component";
 import { useDispatch } from "react-redux";
 
-const PcComponents = ({
+const PcComponent = ({
   component,
   functionBody,
   functionName,
@@ -109,4 +109,4 @@ const PcComponents = ({
   );
 };
 
-export default PcComponents;
+export default PcComponent;

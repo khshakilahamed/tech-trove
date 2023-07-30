@@ -57,7 +57,7 @@ const Categories = () => {
 
   return (
     <div className="px-14 pb-10">
-      <h2 className="text-center py-10">Product Categories</h2>
+      <h2 className="text-center py-10 text-3xl">Product Categories</h2>
 
       <div className={`flex gap-10 flex-wrap justify-center `}>
         {categories.map((category) => (

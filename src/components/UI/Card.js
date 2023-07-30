@@ -44,7 +44,7 @@ const Card = ({ product }) => {
     <>
       {product && (
         <div className="max-w-sm text-black border  rounded-lg shadow ">
-          <div className="text-center py-5">
+          <div className="flex items-center justify-center py-5">
             <Image
               width="250"
               height="250"

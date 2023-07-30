@@ -1,4 +1,3 @@
-import { Button } from "antd";
 import {
   GoogleOutlined,
   GithubOutlined,
@@ -24,7 +23,7 @@ const LoginPage = () => {
       </Head>
       <div className={styles.form}>
         <h3 className="text-center">LOGIN</h3>
-        <div className={styles.social_icons}>
+        <div className="text-center py-5">
           {/* <GoogleOutlined
             onClick={() =>
               signIn("google", { callbackUrl: "http://localhost:3000/" })
@@ -34,6 +33,7 @@ const LoginPage = () => {
             onClick={() =>
               signIn("github", { callbackUrl: "http://localhost:3000/" })
             }
+            className="text-3xl"
           />
         </div>
         <hr />

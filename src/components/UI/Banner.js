@@ -4,11 +4,11 @@ import Image from "next/image";
 const Banner = () => {
   return (
     <div className="bg-gray-300 w-full h-auto md:h-[70vh]">
-      <div className="px-14 w-full h-full grid grid-cols-2 gap-4 items-center">
-        <div className="flex flex-col gap-4">
+      <div className="px-14 w-full h-full flex flex-col md:flex-row gap-4 items-center">
+        <div className="md:w-1/2 flex flex-col text-center md:text-start gap-4 py-10 md:py-0">
           <div>
-            <h2 className="text-8xl font-thin">New collection</h2>
-            <h2 className="text-8xl font-thin">Coming to town</h2>
+            <h2 className="text-5xl md:text-6xl font-thin">New collection</h2>
+            <h2 className="text-5xl md:text-6xl font-thin">Coming to town</h2>
           </div>
 
           <div>
@@ -17,7 +17,8 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="flex items-center h-full w-full justify-center">
+
+        <div className="md:w-1/2 flex items-center h-full w-full justify-center py-10 md:py-0">
           <Image src={bannerImg} width="" responsive alt="banner image" />
         </div>
       </div>

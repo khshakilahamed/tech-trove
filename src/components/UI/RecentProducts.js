@@ -16,7 +16,7 @@ const RecentProducts = ({ products }) => {
 
   return (
     <div className="px-14 py-10">
-      <h2 className="text-center">Recent Products</h2>
+      <h2 className="text-center text-3xl">Featured Products</h2>
 
       <div className="flex gap-10 flex-wrap justify-center my-10">
         {slicedRandomProducts.length > 0 &&

@@ -8,16 +8,12 @@ import {
   removeRam,
   removeStorageDevice,
 } from "@/redux/features/pcBuilder/pcBuilderSlice";
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { GrClose } from "react-icons/gr";
-import { TfiReload } from "react-icons/tfi";
 import { useDispatch, useSelector } from "react-redux";
-import ReactStars from "react-rating-stars-component";
 import { useEffect, useState } from "react";
-import PcComponents from "@/components/UI/PcComponents";
+import PcComponent from "@/components/UI/PcComponent";
+import { toast } from "react-hot-toast";
 
 const PcBuilder = () => {
   const [isDisabled, setIsDisabled] = useState(true);
@@ -49,6 +45,11 @@ const PcBuilder = () => {
     }
   }, [processor, motherboard, ram, powerSupply, storageDevice, monitor]);
 
+  const handleCompleteBuild = () => {
+    dispatch(buildCompleted());
+    toast.success("Successfully Completed");
+  };
+
   return (
     <div className="px-14">
       <div className="flex justify-between items-center py-10">
@@ -67,7 +68,7 @@ const PcBuilder = () => {
          * placeHolderImage --> add a image url as placeholder.
          * product --> pass that product from redux which you already added.
          */}
-        <PcComponents
+        <PcComponent
           component="Processor"
           functionBody={removeProcessor}
           functionName="addProcessor"
@@ -76,7 +77,7 @@ const PcBuilder = () => {
           product={processor}
         />
         <hr />
-        <PcComponents
+        <PcComponent
           component="Motherboard"
           functionBody={removeMotherboard}
           functionName="addMotherboard"
@@ -85,7 +86,7 @@ const PcBuilder = () => {
           product={motherboard}
         />
         <hr />
-        <PcComponents
+        <PcComponent
           component="Ram"
           functionBody={removeRam}
           functionName="addRam"
@@ -94,7 +95,7 @@ const PcBuilder = () => {
           product={ram}
         />
         <hr />
-        <PcComponents
+        <PcComponent
           component="Power Supply"
           functionBody={removePowerSupply}
           functionName="addPowerSupply"
@@ -103,7 +104,7 @@ const PcBuilder = () => {
           product={powerSupply}
         />
         <hr />
-        <PcComponents
+        <PcComponent
           component="Storage Device"
           functionBody={removeStorageDevice}
           functionName="addStorageDevice"
@@ -112,7 +113,7 @@ const PcBuilder = () => {
           product={storageDevice}
         />
         <hr />
-        <PcComponents
+        <PcComponent
           component="Monitor"
           functionBody={removeMonitor}
           functionName="addMonitor"
@@ -124,13 +125,15 @@ const PcBuilder = () => {
       <div className="text-right pb-10">
         <button
           type="button"
-          onClick={isDisabled ? null : () => dispatch(buildCompleted())}
+          onClick={isDisabled ? null : handleCompleteBuild}
           className={`px-8 border-none py-3 text-white rounded focus:outline-none ${
-            isDisabled ? "bg-blue-300" : "bg-blue-600"
+            isDisabled
+              ? "bg-blue-300 cursor-not-allowed"
+              : "bg-blue-600 cursor-pointer"
           }`}
           disabled={isDisabled}
         >
-          Completed Build
+          Complete Build
         </button>
       </div>
     </div>

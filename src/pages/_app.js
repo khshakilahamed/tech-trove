@@ -2,6 +2,7 @@ import store from "@/redux/store";
 import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
+import { Toaster } from "react-hot-toast";
 
 export default function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available
@@ -10,7 +11,12 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <SessionProvider session={pageProps.session}>
-        {getLayout(<Component {...pageProps} />)}
+        {getLayout(
+          <>
+            <Component {...pageProps} />
+            <Toaster />
+          </>
+        )}
       </SessionProvider>
     </Provider>
   );
